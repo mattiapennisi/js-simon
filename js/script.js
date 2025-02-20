@@ -2,6 +2,8 @@
 
 const countdown = document.querySelector('#countdown')
 const numbersList = document.querySelector('#numbers-list')
+const listItem = document.querySelector('.listItem')
+const answersForm = document.querySelector('#answers-form')
 
 let countdownCounter = 30
 
@@ -16,6 +18,8 @@ setInterval(function () {
     } else {
         countdownCounter = 'Inserisci i numeri!'
         countdown.innerText = countdownCounter
+        numbersList.classList.add('d-none')
+        answersForm.classList.remove('d-none')
     }
 }, 100)
 
@@ -26,7 +30,3 @@ for (let i = 1; i <= 5; i++) {
 
     numbersList.innerHTML += `<li class='listItem'>${randomNumber}</li>`
 }
-
-// if (countdownCounter == 30) {
-    numbersList.classList.add('displayNone')
-// }
