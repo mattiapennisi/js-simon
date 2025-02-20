@@ -1,10 +1,15 @@
 /* Generics */
 
+.displayNone {
+	display: none;
+}
+
 /* # COUNTDOWN */
 
 #countdown {
 	font-weight: bolder;
 	font-size: 5rem;
+	margin: 15px;
 }
 
 /* #NUMBERS */
@@ -12,6 +17,11 @@
 	font-size: 3rem;
 }
 
+.listItem {
+	margin: 0 10px;
+}
+
 input {
 	width: 80px !important;
 }
+
