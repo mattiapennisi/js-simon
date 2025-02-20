@@ -6,6 +6,7 @@ const listItem = document.querySelector('.listItem')
 const answersForm = document.querySelector('#answers-form')
 
 let countdownCounter = 30
+let numbersArray = []
 
 // Fa partire il countdown
 
@@ -28,5 +29,15 @@ setInterval(function () {
 for (let i = 1; i <= 5; i++) {
     randomNumber = Math.floor(Math.random()*50 + 1)
 
+    if (!numbersArray.includes(randomNumber)){
+
+    numbersArray.push(randomNumber)
+
     numbersList.innerHTML += `<li class='listItem'>${randomNumber}</li>`
+    } else {
+        i -= 1
+    }
 }
+
+// Al click del button controlla se i valori inseriti dall'utente nel form corrispondono a quelli generati casualmente e fornisce un feedback
+
