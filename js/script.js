@@ -30,7 +30,6 @@ setInterval(function () {
         countdown.innerText = countdownCounter
         numbersList.classList.add('d-none')
         answersForm.classList.remove('d-none')
-        instructions.classList.add('d-none')
     }
 }, 100)
 
@@ -51,64 +50,33 @@ for (let i = 1; i <= 5; i++) {
 
 // Al click del button controlla se i valori inseriti dall'utente nel form corrispondono a quelli generati casualmente e fornisce un feedback
 
-inputBtn.addEventListener('click', function(event) {
-    event.preventDefault()
+inputBtn.addEventListener('click', function(e) {
+    e.preventDefault()
 
     let correctCheck = 0
 
-    if (numbersArray.includes(Number(inputOne.value)) && inputsArray.length < 5) {
-        inputsArray.push(inputOne.value)
-        
-        inputOne.classList.add('border-success')
-
-        correctCheck += 1
-    } else {
-        inputOne.classList.add('border-danger')
+    function inputCheck (inputValue) {
+    
+        if (numbersArray.includes(Number(inputValue.value)) && inputsArray.length < 5) {
+            inputsArray.push(inputValue.value)
+            
+            inputValue.classList.add('border-success')
+    
+            correctCheck += 1
+        } else {
+            inputValue.classList.add('border-danger')
+        }
     }
 
-    if (numbersArray.includes(Number(inputTwo.value)) && inputsArray.length < 5) {
-        inputsArray.push(inputTwo.value)
-        
-        inputTwo.classList.add('border-success')
-
-        correctCheck += 1
-    } else {
-        inputTwo.classList.add('border-danger')
-    }
-
-    if (numbersArray.includes(Number(inputThree.value)) && inputsArray.length < 5) {
-        inputsArray.push(inputThree.value)
-        
-        inputThree.classList.add('border-success')
-
-        correctCheck += 1
-    } else {
-        inputThree.classList.add('border-danger')
-    }
-
-    if (numbersArray.includes(Number(inputFour.value)) && inputsArray.length < 5) {
-        inputsArray.push(inputFour.value)
-        
-        inputFour.classList.add('border-success')
-
-        correctCheck += 1
-    } else {
-        inputFour.classList.add('border-danger')
-    }
-
-    if (numbersArray.includes(Number(inputFive.value)) && inputsArray.length < 5) {
-        inputsArray.push(inputFive.value)
-        
-        inputFive.classList.add('border-success')
-
-        correctCheck += 1
-    } else {
-        inputFive.classList.add('border-danger')
-    }
+    inputCheck(inputOne)
+    inputCheck(inputTwo)
+    inputCheck(inputThree)
+    inputCheck(inputFour)
+    inputCheck(inputFive)
 
     inputBtn.disabled = true
 
-    countdownCounter = ' '
+    countdown.classList.add('d-none')
 
     instructions.innerText = `Hai indovinato ${correctCheck} numeri`
 })
