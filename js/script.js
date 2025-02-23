@@ -13,7 +13,7 @@ const inputThree = document.querySelector('#inputThree')
 const inputFour = document.querySelector('#inputFour')
 const inputFive = document.querySelector('#inputFive')
 
-let countdownCounter = 30
+let countdownCounter = 5
 let numbersArray = []
 let inputsArray = []
 
@@ -31,7 +31,7 @@ setInterval(function () {
         numbersList.classList.add('d-none')
         answersForm.classList.remove('d-none')
     }
-}, 100)
+}, 1000)
 
 // Genera 5 numeri casuali
 
